@@ -44,12 +44,12 @@ enum Theme {
     /// 待ちの段階の色（にこにこ・そわそわ・いらいら）
     static func mood(_ m: Int) -> Color { [basil, Color(hex: 0xE39B2D), tomato][max(0, min(2, m))] }
 
-    // 書体：看板は太いセリフ、数字は丸い等幅、伝票の手書きは Noteworthy
+    // 書体：看板は太いセリフ、数字は丸い等幅、伝票の数字はセリフの斜体（手書きの伝票の雰囲気）
     static func sign(_ size: CGFloat) -> Font { .system(size: size, weight: .heavy, design: .serif) }
     static func title(_ size: CGFloat) -> Font { .system(size: size, weight: .bold, design: .serif) }
     static func body(_ size: CGFloat, _ weight: Font.Weight = .medium) -> Font { .system(size: size, weight: weight, design: .rounded) }
     static func number(_ size: CGFloat) -> Font { .system(size: size, weight: .heavy, design: .rounded).monospacedDigit() }
-    static func hand(_ size: CGFloat) -> Font { .custom("Noteworthy-Bold", size: size) }
+    static func hand(_ size: CGFloat) -> Font { .system(size: size, weight: .bold, design: .serif).italic().monospacedDigit() }
 
     // 角丸の段階
     static let radiusS: CGFloat = 8

@@ -12,6 +12,7 @@ struct PlayView: View {
         ZStack {
             WoodBackground(top: Theme.wood, grain: Theme.woodGrain).ignoresSafeArea()
             if sizeClass == .regular {
+                GeometryReader { geo in
                 HStack(spacing: 14) {
                     table
                     VStack(spacing: 12) {
@@ -22,7 +23,8 @@ struct PlayView: View {
                         CuttingBoard()
                         Spacer(minLength: 0)
                     }
-                    .frame(width: 300)
+                    .frame(width: min(300, max(220, geo.size.width * 0.42)))
+                }
                 }
                 .padding(14)
             } else {
@@ -131,6 +133,8 @@ struct TopBar: View {
                     .frame(width: 26, height: 26)
                 Text(String(format: "%d:%02d", hud.seconds / 60, hud.seconds % 60))
                     .font(Theme.number(20))
+                    .lineLimit(1)
+                    .fixedSize()
                     .foregroundStyle(hud.seconds <= 30 ? Theme.yolk : Theme.paper)
             }
             .accessibilityElement(children: .ignore)
@@ -296,11 +300,10 @@ struct TicketView: View {
             HStack(spacing: 5) {
                 CustomerFace(mood: order.mood, seed: order.id).frame(width: wide ? 24 : 18, height: wide ? 24 : 18)
                 Text(order.dish.name)
-                    .font(Theme.title(wide ? 14 : 11.5))
+                    .font(Theme.title(wide ? 14 : 12))
                     .foregroundStyle(Theme.ink)
-                    .lineLimit(2)
-                    .minimumScaleFactor(0.7)
-                    .fixedSize(horizontal: false, vertical: true)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.55)
                 Spacer(minLength: 0)
             }
             Rectangle().fill(Theme.tomato.opacity(0.7)).frame(height: 1.5)
@@ -312,11 +315,14 @@ struct TicketView: View {
                     let ok = (have[kind] ?? 0) >= n
                     HStack(spacing: 1) {
                         IngredientIcon(kind: kind, size: wide ? 20 : 16)
-                        Text("\(n)")
-                            .font(Theme.hand(wide ? 14 : 12))
-                            .foregroundStyle(ok ? Theme.basil : Theme.ink)
                         if ok {
-                            Image(systemName: "checkmark").font(.system(size: 8, weight: .heavy)).foregroundStyle(Theme.basil)
+                            Image(systemName: "checkmark.circle.fill")
+                                .font(.system(size: wide ? 13 : 11, weight: .bold))
+                                .foregroundStyle(Theme.basil)
+                        } else {
+                            Text("×\(n)")
+                                .font(Theme.hand(wide ? 14 : 12))
+                                .foregroundStyle(Theme.ink)
                         }
                     }
                 }

@@ -118,8 +118,10 @@ struct TodayBoard: View {
                         Text(dish.name)
                             .font(Theme.body(10, .semibold))
                             .foregroundStyle(Theme.chalk.opacity(0.85))
-                            .lineLimit(1)
-                            .minimumScaleFactor(0.6)
+                            .multilineTextAlignment(.center)
+                            .lineLimit(2)
+                            .minimumScaleFactor(0.8)
+                            .frame(height: 26, alignment: .top)
                     }
                     .frame(maxWidth: .infinity)
                 }

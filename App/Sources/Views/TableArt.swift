@@ -215,7 +215,12 @@ struct TableDynamic: View {
             let text = Text(pop.text).font(Theme.number(f.len(pop.big ? 20 : 14))).foregroundStyle(pop.color)
             var g = ctx
             g.opacity = 1 - max(0, age - 0.6) / 0.5
-            g.draw(text, at: c)
+            // 読みやすいように伝票の紙の小さな札にのせる
+            let resolved = g.resolve(text)
+            let size = resolved.measure(in: CGSize(width: 1000, height: 200))
+            let plate = CGRect(x: c.x - size.width / 2 - 6, y: c.y - size.height / 2 - 2, width: size.width + 12, height: size.height + 4)
+            g.fill(Path(roundedRect: plate, cornerRadius: plate.height / 2), with: .color(Theme.paper.opacity(0.9)))
+            g.draw(resolved, at: c)
         }
     }
 }

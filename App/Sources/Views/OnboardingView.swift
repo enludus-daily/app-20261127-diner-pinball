@@ -52,7 +52,9 @@ struct OnboardingView: View {
     private func heading(_ title: String, _ body: String) -> some View {
         VStack(spacing: 8) {
             Text(title)
-                .font(Theme.sign(28))
+                .font(Theme.sign(25))
+                .lineLimit(2)
+                .minimumScaleFactor(0.8)
                 .foregroundStyle(Theme.ink)
                 .multilineTextAlignment(.center)
             Text(body)
