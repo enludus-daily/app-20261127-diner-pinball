@@ -1,21 +1,21 @@
 {
   "_doc": "App Store Connect に API で入れる情報（.github/workflows/asc.yml の metadata が読む）。文字数：name・subtitle 30、keywords 100（カンマ区切り）、promotionalText 170、description 4000。カテゴリの ID は EDUCATION・PRODUCTIVITY・UTILITIES・LIFESTYLE・HEALTH_AND_FITNESS など。審査への提出と App プライバシーの申告は本人が行う。",
   "locale": "ja",
-  "name": "",
-  "subtitle": "",
-  "primaryCategory": "",
-  "secondaryCategory": "",
+  "name": "まんぷくピンボール：注文をはじけ",
+  "subtitle": "食材をはじいて料理を作るピンボール",
+  "primaryCategory": "GAMES",
+  "secondaryCategory": "ENTERTAINMENT",
   "supportUrl": "https://github.com/enludus-daily/app-20261127-diner-pinball/issues",
   "privacyPolicyUrl": "https://github.com/enludus-daily/app-20261127-diner-pinball/blob/main/PRIVACY.md",
-  "keywords": "",
-  "promotionalText": "",
-  "description": "",
-  "whatToTest": "",
+  "keywords": "ピンボール,料理,レストラン,食堂,注文,フリッパー,物理,パズル,カジュアル,アーケード,クッキング,毎日",
+  "promotionalText": "フライ返しで銀の玉をはじき、トマトや卵に当てて伝票の材料をそろえたら、真ん中の銅の鍋へ。3 分の昼の営業で、何品出せるか。毎日ちがう献立が届きます。",
+  "description": "まんぷくピンボールは、ピンボールと食堂の注文をかけ合わせたゲームです。\n\n■ 遊び方\n・画面の左右をタップすると、下のフライ返し（フリッパー）が上がります\n・銀の玉が食材のバンパーに当たると、その食材がまな板にのります\n・伝票の材料がそろったら、台の真ん中の銅の鍋に玉を落として「あがり！」\n・お客は 3 人まで。待たせすぎると帰ってしまいます\n・3 分か、玉が 3 つ落ちたら閉店\n\n■ ねらうほど上手くなる\nフライ返しのどこで玉を受けるかで、行き先が変わります。いま要る食材は光るので、ねらって当てる練習ができます。続けて出すと ×2・×3 の連続ボーナス。いらない材料は「まかない」として少しの点に。\n\n■ 毎日の献立\n日付で決まる今日の献立は、だれでも同じ。売上と、続けて遊んだ日数が残ります。結果は絵文字 1 行でシェアできます。\n\n■ 料理図鑑\n洋食屋・喫茶・中華の 3 店で 30 品。オムライス、クロックマダム、エビチリ……出した料理が図鑑にたまります。\n\n■ Pro（買い切り・広告なし）\n・お店が 3 → 9 に（ラーメン屋・パン屋・おまつり屋台・石窯ピザ・カレー・海の食堂）\n・図鑑が 30 → 60 品に\n・過去 30 日の献立で遊べる\n・ゆっくりモード（玉が 0.75 倍の速さ）\nPro のお店は、1 日 1 回おためしで遊べます。\n\n■ プライバシー\n記録は端末の中だけ。ログイン・広告・トラッキングはありません。",
+  "whatToTest": "・はじめての 3 ページの案内のあと、「今日の献立で開店」で 3 分遊べるか\n・画面の左右のタップでフライ返しが上がり、食材に当たるとまな板にのるか\n・伝票の材料がそろったら鍋に落として料理が出せるか、待たせるとお客が帰るか\n・結果のレシート、料理図鑑、過去の献立、設定\n・Pro の購入と復元（鍵のついたお店は 1 日 1 回おためしで遊べる）",
   "en-US": {
-    "name": "",
-    "subtitle": "",
-    "keywords": "",
-    "promotionalText": "",
-    "description": ""
+    "name": "Diner Pinball: Flip & Cook",
+    "subtitle": "Pinball meets a lunch rush",
+    "keywords": "pinball,cooking,restaurant,diner,kitchen,orders,flipper,arcade,physics,chef,food,casual,daily",
+    "promotionalText": "Flip a silver ball into tomatoes and eggs, fill the ticket, then drop it in the copper pot. How many dishes can you serve in a 3-minute lunch rush? New menu daily.",
+    "description": "Diner Pinball mixes a pinball table with a busy diner kitchen.\n\nHOW TO PLAY\n- Tap the left or right side of the screen to raise the spatula flippers\n- When the silver ball hits an ingredient bumper, that ingredient lands on your board\n- When a ticket is complete, drop the ball into the copper pot in the middle. Order up!\n- Up to three guests at a time. Keep them waiting too long and they walk out\n- The shift ends after three minutes or three lost balls\n\nAIM AND IMPROVE\nWhere the ball meets the spatula decides where it goes. The ingredients you need glow, so you can practice your aim. Serve in quick succession for x2 and x3 combos. Leftovers become a small staff-meal bonus.\n\nDAILY MENU\nEach day brings the same menu for everyone. Your score and streak are saved, and you can share a one-line emoji result.\n\nRECIPE BOOK\nThirty dishes across a diner, a café and a wok kitchen: omurice, croque madame, chili shrimp and more.\n\nPRO (one-time purchase, no ads)\n- Kitchens: 3 to 9 (noodle bar, bakery, fair food stand, stone oven pizza, curry house, seaside grill)\n- Recipe book: 30 to 60 dishes\n- Play the last 30 daily menus\n- Slow mode (the ball at 0.75x speed)\nYou can try one Pro kitchen for free each day.\n\nPRIVACY\nYour records stay on your device. No login, no ads, no tracking."
   }
 }

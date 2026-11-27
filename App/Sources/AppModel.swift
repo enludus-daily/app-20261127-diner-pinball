@@ -374,8 +374,9 @@ final class AppModel {
         SoundBox.shared.play(.close, on: soundOn)
         serveTick += 1
         showBanner(tr("閉店", "Closed"), trf("%d 品", "%d dishes", r.served.count), tint: Theme.woodDeep)
+        let delay = still ? 0 : 900
         Task { @MainActor [weak self] in
-            try? await Task.sleep(for: .milliseconds(still ? 0 : 900))
+            try? await Task.sleep(for: .milliseconds(delay))
             self?.activeSheet = .result
         }
     }

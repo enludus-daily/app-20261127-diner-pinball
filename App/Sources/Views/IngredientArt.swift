@@ -78,7 +78,7 @@ enum IngredientArt {
                 }
             }
             if kind == .carrot {
-                for y in [-0.15, 0.15, 0.45] { g.stroke(line([(-0.5, y), (-0.15, y + 0.05)]), with: .color(Color(hex: 0xC7661C)), lineWidth: lw) }
+                for y: CGFloat in [-0.15, 0.15, 0.45] { g.stroke(line([(-0.5, y), (-0.15, y + 0.05)]), with: .color(Color(hex: 0xC7661C)), lineWidth: lw) }
             }
         case .rice:
             for (x, y, a) in [(-0.35, -0.2, 0.3), (0.2, -0.35, -0.4), (0.35, 0.15, 0.8), (-0.1, 0.35, -0.2), (-0.45, 0.25, 1.0), (0.05, 0.0, 0.5)] {
@@ -89,7 +89,7 @@ enum IngredientArt {
             p.addArc(center: CGPoint(x: c.x + r * 0.15, y: c.y + r * 0.1), radius: r * 0.45, startAngle: .degrees(200), endAngle: .degrees(20), clockwise: false)
             g.stroke(p, with: .color(.white.opacity(kind == .meat ? 0.8 : 0.55)), lineWidth: r * 0.16)
         case .onion:
-            for x in [-0.45, 0.0, 0.45] { g.stroke(line([(x * 0.6, -0.9), (x, 0), (x * 0.6, 0.9)]), with: .color(Color(hex: 0xB98AA8).opacity(0.6)), lineWidth: lw * 0.8) }
+            for x: CGFloat in [-0.45, 0.0, 0.45] { g.stroke(line([(x * 0.6, -0.9), (x, 0), (x * 0.6, 0.9)]), with: .color(Color(hex: 0xB98AA8).opacity(0.6)), lineWidth: lw * 0.8) }
             g.fill(circle(0, -0.85, 0.16), with: .color(Color(hex: 0xA9C76A)))
         case .bread:
             g.fill(Path(roundedRect: CGRect(x: c.x - r * 0.55, y: c.y - r * 0.45, width: r * 1.1, height: r * 0.95), cornerRadius: r * 0.3), with: .color(Color(hex: 0xF6E3BE)))
@@ -97,7 +97,7 @@ enum IngredientArt {
             for (x, y, s) in [(-0.35, -0.2, 0.16), (0.3, -0.35, 0.11), (0.25, 0.3, 0.18), (-0.25, 0.4, 0.1)] { g.fill(circle(x, y, s), with: .color(Color(hex: 0xD9A72C))) }
         case .scallion:
             g.fill(Path(CGRect(x: c.x - r, y: c.y + r * 0.2, width: r * 2, height: r)), with: .color(Color(hex: 0xF1F4E2)))
-            for x in [-0.4, 0.0, 0.4] { g.stroke(line([(x, -0.9), (x, 0.2)]), with: .color(Color(hex: 0x4E8F38)), lineWidth: lw) }
+            for x: CGFloat in [-0.4, 0.0, 0.4] { g.stroke(line([(x, -0.9), (x, 0.2)]), with: .color(Color(hex: 0x4E8F38)), lineWidth: lw) }
         case .shrimp:
             for k in 0..<4 {
                 var p = Path()
@@ -105,14 +105,14 @@ enum IngredientArt {
                 g.stroke(p, with: .color(.white.opacity(0.65)), lineWidth: lw)
             }
         case .noodles:
-            for y in [-0.45, -0.15, 0.15, 0.45] {
+            for y: CGFloat in [-0.45, -0.15, 0.15, 0.45] {
                 var p = Path()
                 p.move(to: CGPoint(x: c.x - r, y: c.y + y * r))
                 for k in 0..<5 { p.addQuadCurve(to: CGPoint(x: c.x - r + CGFloat(k + 1) * r * 0.4, y: c.y + y * r), control: CGPoint(x: c.x - r + (CGFloat(k) + 0.5) * r * 0.4, y: c.y + y * r + (k % 2 == 0 ? -1 : 1) * r * 0.14)) }
                 g.stroke(p, with: .color(Color(hex: 0xC9A750)), lineWidth: lw)
             }
         case .seaweed:
-            for y in [-0.4, 0.0, 0.4] { g.stroke(line([(-0.9, y), (0.9, y - 0.1)]), with: .color(Color(hex: 0x6E9A72).opacity(0.6)), lineWidth: lw * 0.7) }
+            for y: CGFloat in [-0.4, 0.0, 0.4] { g.stroke(line([(-0.9, y), (0.9, y - 0.1)]), with: .color(Color(hex: 0x6E9A72).opacity(0.6)), lineWidth: lw * 0.7) }
         case .flour:
             g.fill(Path(CGRect(x: c.x - r, y: c.y - r * 0.62, width: r * 2, height: r * 0.16)), with: .color(Color(hex: 0xC79A64)))
             for (x, y) in [(-0.3, 0.1), (0.2, 0.25), (0.0, -0.1), (0.35, -0.05), (-0.15, 0.45)] { g.fill(circle(x, y, 0.05), with: .color(Color(hex: 0xD9CDB5))) }
@@ -120,8 +120,8 @@ enum IngredientArt {
             g.fill(Path(roundedRect: CGRect(x: c.x - r * 0.5, y: c.y - r * 0.4, width: r, height: r * 0.8), cornerRadius: r * 0.12), with: .color(Color(hex: 0xFCEFB4)))
             g.stroke(line([(-0.5, -0.4), (-0.2, -0.65), (0.75, -0.65), (0.5, -0.4)]), with: .color(Color(hex: 0xE0C25E)), lineWidth: lw * 0.8)
         case .chocolate:
-            for x in [-0.33, 0.33] { g.stroke(line([(x, -1), (x, 1)]), with: .color(Color(hex: 0x4A2716)), lineWidth: lw) }
-            for y in [-0.33, 0.33] { g.stroke(line([(-1, y), (1, y)]), with: .color(Color(hex: 0x4A2716)), lineWidth: lw) }
+            for x: CGFloat in [-0.33, 0.33] { g.stroke(line([(x, -1), (x, 1)]), with: .color(Color(hex: 0x4A2716)), lineWidth: lw) }
+            for y: CGFloat in [-0.33, 0.33] { g.stroke(line([(-1, y), (1, y)]), with: .color(Color(hex: 0x4A2716)), lineWidth: lw) }
         case .corn:
             for row in 0..<5 { for col in 0..<4 { g.fill(circle(-0.45 + CGFloat(col) * 0.3, -0.6 + CGFloat(row) * 0.28, 0.1), with: .color(Color(hex: 0xFBDD6E))) } }
             g.fill(Path(ellipseIn: CGRect(x: c.x - r * 1.3, y: c.y + r * 0.3, width: r * 0.9, height: r * 1.2)), with: .color(Color(hex: 0x7DAA4C)))
@@ -135,7 +135,7 @@ enum IngredientArt {
         case .fish:
             g.fill(circle(-0.45, -0.1, 0.12), with: .color(.white))
             g.fill(circle(-0.45, -0.1, 0.06), with: .color(Theme.ink))
-            for x in [0.0, 0.25] { g.stroke(line([(x, -0.6), (x - 0.15, 0), (x, 0.6)]), with: .color(Color(hex: 0x5A7C92)), lineWidth: lw * 0.8) }
+            for x: CGFloat in [0.0, 0.25] { g.stroke(line([(x, -0.6), (x - 0.15, 0), (x, 0.6)]), with: .color(Color(hex: 0x5A7C92)), lineWidth: lw * 0.8) }
         case .lemon:
             g.fill(circle(0, 0, 0.7), with: .color(Color(hex: 0xFCEB9A)))
             for k in 0..<6 {

@@ -307,7 +307,8 @@ struct TicketView: View {
             let have = board.reduce(into: [Ingredient: Int]()) { $0[$1, default: 0] += 1 }
             FlowRow(spacing: 3) {
                 ForEach(Array(order.dish.lines.enumerated()), id: \.offset) { _, line in
-                    let (kind, n) = line
+                    let kind = line.0
+                    let n = line.1
                     let ok = (have[kind] ?? 0) >= n
                     HStack(spacing: 1) {
                         IngredientIcon(kind: kind, size: wide ? 20 : 16)
