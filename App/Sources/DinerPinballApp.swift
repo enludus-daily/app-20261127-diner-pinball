@@ -28,7 +28,14 @@ struct RootView: View {
                 HomeView().transition(.opacity)
             }
         }
-        .animation(.easeOut(duration: 0.25), value: model.screen)
+        .animation(Launch.isFreshUITest ? nil : .easeOut(duration: 0.25), value: model.screen)
+        // UI テストでは動きを止める（消えていく画面の部品を XCUITest が拾って「押せない」と落ちないように）
+        .transaction { t in
+            if Launch.isFreshUITest {
+                t.disablesAnimations = true
+                t.animation = nil
+            }
+        }
         .environment(model)
         // 昼の食堂の色（木・銅・伝票）を自前で描くので、ライトに固定する
         .preferredColorScheme(.light)
