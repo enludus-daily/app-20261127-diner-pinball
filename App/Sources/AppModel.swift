@@ -96,7 +96,6 @@ final class AppModel {
     @ObservationIgnored private var hudTimer = 0.0
     @ObservationIgnored private var popID = 0
     @ObservationIgnored private var bannerID = 0
-    @ObservationIgnored private var drawSkip = 0
 
     let persists: Bool
     /// 撮影：動かさない
@@ -231,7 +230,8 @@ final class AppModel {
         guard !still else { return }
         loop = Task { @MainActor [weak self] in
             while !Task.isCancelled {
-                try? await Task.sleep(for: .milliseconds(16))
+                // UI テストでは 1 秒 10 回にする（XCUITest がボタンの落ち着きを待てるように。11/26 の学び）
+                try? await Task.sleep(for: .milliseconds(Launch.isFreshUITest ? 100 : 16))
                 guard let self else { return }
                 self.tick()
             }
@@ -257,15 +257,13 @@ final class AppModel {
         steam = max(0, steam - dt)
         handleEvents(visual: visual)
         hudTimer += dt
-        if hudTimer >= 0.1 {
+        if hudTimer >= (Launch.isFreshUITest ? 0.5 : 0.1) {
             hudTimer = 0
             refreshHud()
         }
         if visual {
             pops.removeAll { clock - $0.born > 1.2 }
-            // UI テストでは描き直しを 1 秒 20 回に減らす（XCUITest が落ち着くのを待てるように）
-            drawSkip += 1
-            if !Launch.isFreshUITest || drawSkip % 3 == 0 { frame &+= 1 }
+            frame &+= 1
         }
     }
 
