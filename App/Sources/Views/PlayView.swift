@@ -299,6 +299,11 @@ struct TicketView: View {
         VStack(alignment: .leading, spacing: 3) {
             HStack(spacing: 5) {
                 CustomerFace(mood: order.mood, seed: order.id).frame(width: wide ? 24 : 18, height: wide ? 24 : 18)
+                    .overlay(alignment: .topTrailing) {
+                        if order.dish.id == model.game.shift.specialID {
+                            StarShape().fill(Theme.yolk).frame(width: 10, height: 10).offset(x: 4, y: -4)
+                        }
+                    }
                 Text(order.dish.name)
                     .font(Theme.title(wide ? 14 : 12))
                     .foregroundStyle(Theme.ink)

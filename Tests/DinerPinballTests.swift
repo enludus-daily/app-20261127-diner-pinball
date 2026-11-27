@@ -84,6 +84,18 @@ struct ShiftTests {
         #expect(s.activeOrders.count == 2, "出した伝票が空く")
     }
 
+    @Test func todaysSpecialDoublesThePoints() {
+        var a = opened()
+        var b = opened()
+        let dish = a.activeOrders[0].dish
+        b.specialID = dish.id
+        for (k, n) in dish.recipe { for _ in 0..<n { a.hit(k); b.hit(k) } }
+        a.pot()
+        b.pot()
+        #expect(b.score == a.score * 2)
+        #expect(b.drainEvents().contains(.special(dishID: dish.id)))
+    }
+
     @Test func boardDropsTheOldestWhenFull() {
         var s = opened()
         for _ in 0..<Shift.boardCapacity { s.hit(.egg) }

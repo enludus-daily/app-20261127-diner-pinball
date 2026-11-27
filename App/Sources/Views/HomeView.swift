@@ -111,8 +111,17 @@ struct TodayBoard: View {
                 .foregroundStyle(Theme.chalk.opacity(0.9))
                 .lineLimit(2)
                 .fixedSize(horizontal: false, vertical: true)
+            HStack(spacing: 8) {
+                DishPlate(dish: menu.special, size: 40)
+                VStack(alignment: .leading, spacing: 1) {
+                    Text(tr("本日のおすすめ（点が 2 倍）", "Today's special (double points)"))
+                        .font(Theme.body(10, .bold)).kerning(0.6).foregroundStyle(Theme.yolk)
+                    Text(menu.special.name).font(Theme.title(16)).foregroundStyle(Theme.chalk)
+                }
+                Spacer(minLength: 0)
+            }
             HStack(spacing: 10) {
-                ForEach(stall.dishes.prefix(4)) { dish in
+                ForEach(stall.dishes.filter { $0.id != menu.special.id }.prefix(4)) { dish in
                     VStack(spacing: 3) {
                         DishPlate(dish: dish, size: 52)
                         Text(dish.name)

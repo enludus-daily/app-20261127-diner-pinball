@@ -166,6 +166,17 @@
         }
       }
     },
+    "おすすめ ×2！": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Special ×2!"
+          }
+        }
+      }
+    },
     "おためし 1 回": {
       "extractionState": "manual",
       "localizations": {
@@ -987,6 +998,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "%d stars"
+          }
+        }
+      }
+    },
+    "本日のおすすめ（点が 2 倍）": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Today's special (double points)"
           }
         }
       }

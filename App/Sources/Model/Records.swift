@@ -28,6 +28,12 @@ struct DailyMenu: Equatable, Sendable {
         let free = Kitchen.freeStalls
         return free[Int(seed % UInt64(free.count))]
     }
+
+    /// 本日のおすすめ（出すと点が 2 倍。日付で決まる）
+    var special: Dish {
+        let dishes = stall.dishes
+        return dishes[Int((seed / 7) % UInt64(dishes.count))]
+    }
 }
 
 /// 1 回の営業の結果

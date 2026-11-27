@@ -149,7 +149,9 @@ final class AppModel {
 
     func startDaily(_ day: String? = nil) {
         let menu = DailyMenu(day: day ?? today)
-        begin(Game(stall: menu.stall, seed: menu.seed, slow: slowMode && isPro), run: .daily(menu.day))
+        var g = Game(stall: menu.stall, seed: menu.seed, slow: slowMode && isPro)
+        g.shift.specialID = menu.special.id
+        begin(g, run: .daily(menu.day))
     }
 
     func startStall(_ stall: Stall) {
@@ -330,6 +332,9 @@ final class AppModel {
                 SoundBox.shared.play(.sigh, on: soundOn && visual)
             case .newOrder:
                 break
+            case .special:
+                comboTick += 1
+                if visual { pop(tr("おすすめ ×2！", "Special ×2!"), at: TableGeometry.pot + Vec(0, 64), color: Theme.basil, big: true) }
             case .ballLost:
                 failTick += 1
                 shake += 1

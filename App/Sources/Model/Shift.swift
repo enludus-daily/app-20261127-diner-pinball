@@ -42,9 +42,12 @@ struct Shift: Sendable {
         case ballSaved
         case lastCall
         case closed
+        case special(dishID: String)
     }
 
     let stall: Stall
+    /// 本日のおすすめ（出すと点が 2 倍）
+    var specialID: String?
     private(set) var phase: Phase = .ready
     private(set) var time = 0.0
     private(set) var balls = Shift.ballCount
@@ -173,10 +176,12 @@ struct Shift: Sendable {
         }
         board = keep
         let tip = Int((order.ratio * 10).rounded())
-        let points = (order.dish.points + tip) * combo + makanai * 3
+        let special = order.dish.id == specialID ? 2 : 1
+        let points = (order.dish.points + tip) * combo * special + makanai * 3
         score += points
         served.append(order.dish.id)
         events.append(.served(dishID: order.dish.id, points: points, combo: combo, makanai: makanai))
+        if special > 1 { events.append(.special(dishID: order.dish.id)) }
         return true
     }
 

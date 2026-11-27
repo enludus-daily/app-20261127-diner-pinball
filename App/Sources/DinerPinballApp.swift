@@ -155,7 +155,11 @@ enum Launch {
         guard let scene else { return }
         if scene.hasPrefix("onboarding") { return }
         let menu = model.todayMenu
-        func dailyGame() -> Game { Game(stall: menu.stall, seed: menu.seed) }
+        func dailyGame() -> Game {
+            var g = Game(stall: menu.stall, seed: menu.seed)
+            g.shift.specialID = menu.special.id
+            return g
+        }
         switch scene {
         case "play", "wide":
             model.stage(dailyGame(), run: .daily(menu.day), seconds: 38)
