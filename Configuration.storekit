@@ -1,0 +1,21 @@
+{
+  "identifier" : "D1E0A020",
+  "nonRenewingSubscriptions" : [],
+  "products" : [
+    {
+      "displayPrice" : "480",
+      "familyShareable" : true,
+      "internalID" : "D1E0A020-0001",
+      "localizations" : [
+        { "description" : "お店 6 つ・料理 30 品・過去 30 日の献立・ゆっくりモード", "displayName" : "まんぷくピンボール Pro", "locale" : "ja" },
+        { "description" : "6 kitchens, 30 dishes, past menus and slow mode", "displayName" : "Diner Pinball Pro", "locale" : "en_US" }
+      ],
+      "productID" : "com.enludus.daily.020.pro",
+      "referenceName" : "Diner Pinball Pro",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : { "_locale" : "ja_JP", "_storefront" : "JPN" },
+  "subscriptionGroups" : [],
+  "version" : { "major" : 3, "minor" : 0 }
+}

@@ -7,13 +7,13 @@
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "__APP_NAME__"
+            "value": "まんぷくピンボール"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "__APP_NAME__"
+            "value": "Diner Pinball"
           }
         }
       }

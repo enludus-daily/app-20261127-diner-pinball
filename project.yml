@@ -1,6 +1,6 @@
 # XcodeGen の spec（https://github.com/yonaskolb/XcodeGen）。.xcodeproj はコミットせず、CI と手元で生成する。
 # 名前と Bundle ID は scripts/new-app.sh が書き換える（テンプレートの名前・Bundle ID の文字列を全部置き換える）。
-name: DailyApp
+name: DinerPinball
 options:
   developmentLanguage: ja
   deploymentTarget:
@@ -14,7 +14,7 @@ settings:
     ENABLE_USER_SCRIPT_SANDBOXING: YES
     DEAD_CODE_STRIPPING: YES
 targets:
-  DailyApp:
+  DinerPinball:
     type: application
     platform: iOS
     sources:
@@ -23,7 +23,7 @@ targets:
     info:
       path: App/Info.plist
       properties:
-        CFBundleDisplayName: DailyApp
+        CFBundleDisplayName: "まんぷくピンボール"
         CFBundleShortVersionString: $(MARKETING_VERSION)
         CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         # 標準の HTTPS 以外の暗号を使わない前提。使うなら本人に戻す（輸出規制の申告が変わる）
@@ -36,46 +36,46 @@ targets:
           - UIInterfaceOrientationPortrait
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.enludus.daily.template
-        PRODUCT_NAME: DailyApp
+        PRODUCT_BUNDLE_IDENTIFIER: com.enludus.daily.020
+        PRODUCT_NAME: DinerPinball
         # iPhone だけ（iPad 対応にすると iPad のスクリーンショットも提出に要る）
         TARGETED_DEVICE_FAMILY: "1"
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
         CODE_SIGN_STYLE: Automatic
-  DailyAppTests:
+  DinerPinballTests:
     type: bundle.unit-test
     platform: iOS
     sources:
       - path: Tests
     dependencies:
-      - target: DailyApp
+      - target: DinerPinball
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.enludus.daily.template.tests
+        PRODUCT_BUNDLE_IDENTIFIER: com.enludus.daily.020.tests
         GENERATE_INFOPLIST_FILE: YES
   # 主な流れのタップと撮影・主なボタンが画面の中にあるかの検査（UITests/MainFlowUITests.swift）
-  DailyAppUITests:
+  DinerPinballUITests:
     type: bundle.ui-testing
     platform: iOS
     sources:
       - path: UITests
     dependencies:
-      - target: DailyApp
+      - target: DinerPinball
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.enludus.daily.template.uitests
+        PRODUCT_BUNDLE_IDENTIFIER: com.enludus.daily.020.uitests
         GENERATE_INFOPLIST_FILE: YES
-        TEST_TARGET_NAME: DailyApp
+        TEST_TARGET_NAME: DinerPinball
 schemes:
-  DailyApp:
+  DinerPinball:
     build:
       targets:
-        DailyApp: all
-        DailyAppTests: [test]
-        DailyAppUITests: [test]
+        DinerPinball: all
+        DinerPinballTests: [test]
+        DinerPinballUITests: [test]
     test:
       gatherCoverageData: true
       targets:
-        - DailyAppTests
-        - DailyAppUITests
+        - DinerPinballTests
+        - DinerPinballUITests

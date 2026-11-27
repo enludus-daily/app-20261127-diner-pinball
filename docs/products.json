@@ -3,15 +3,23 @@
   "products": [
     {
       "type": "NON_CONSUMABLE",
-      "productId": "com.enludus.daily.template.pro",
-      "referenceName": "Pro",
+      "productId": "com.enludus.daily.020.pro",
+      "referenceName": "Diner Pinball Pro",
       "price": 480,
       "familySharable": true,
-      "reviewNote": "Pro を買うと、すべての〇〇と詳しい振り返りが使えます。課金の画面は設定 > Pro から開けます。",
+      "reviewNote": "Pro を買うと、お店が 3 から 9 に増え（ラーメン屋・パン屋・屋台・石窯ピザ・カレー・海の食堂）、料理図鑑が 30 品から 60 品に、過去 30 日の毎日の献立とゆっくりモードが使えます。課金の画面はホームの下の「設定」>「Pro を見る」、または鍵のついたお店を押すと開けます（その日 1 回はおためしで遊べます）。",
       "reviewScreenshot": "docs/iap/paywall.png",
       "localizations": [
-        {"locale": "ja", "name": "Pro", "description": "すべての〇〇と詳しい振り返り"},
-        {"locale": "en-US", "name": "Pro", "description": "All 〇〇 and detailed reviews"}
+        {
+          "locale": "ja",
+          "name": "まんぷくピンボール Pro",
+          "description": "お店 6 つ・料理 30 品・過去 30 日の献立・ゆっくりモード"
+        },
+        {
+          "locale": "en-US",
+          "name": "Diner Pinball Pro",
+          "description": "6 kitchens, 30 dishes, past menus and slow mode"
+        }
       ]
     }
   ]

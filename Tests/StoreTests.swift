@@ -1,5 +1,5 @@
 import Testing
-@testable import DailyApp
+@testable import DinerPinball
 
 struct EntitlementsTests {
     let bundle = "com.enludus.daily.template"
