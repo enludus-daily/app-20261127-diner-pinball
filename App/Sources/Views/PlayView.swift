@@ -23,7 +23,7 @@ struct PlayView: View {
                         CuttingBoard()
                         Spacer(minLength: 0)
                     }
-                    .frame(width: min(300, max(220, geo.size.width * 0.42)))
+                    .frame(width: min(300, max(170, geo.size.width * 0.36)))
                 }
                 }
                 .padding(14)
